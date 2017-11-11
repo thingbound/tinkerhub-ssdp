@@ -12,9 +12,9 @@ browser.on('unavailable', service => console.log('Service unavailable', service)
 // Filter and map services
 browser.filter(service => service.headers['HUE-BRIDGEID'])
   .map(service => {
-	  // Change the identifier being tracked
-	  service.id = service.headers['HUE-BRIDGEID'];
-	  return service;
+    // Change the identifier being tracked
+    service.id = service.headers['HUE-BRIDGEID'];
+    return service;
   });
 
 // Start discovering services
