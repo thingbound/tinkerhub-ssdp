@@ -1,19 +1,21 @@
 {
   "name": "tinkerhub-ssdp",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "license": "MIT",
   "description": "Tracking when SSDP devices become available and unavailable",
   "repository": "tinkerhub/tinkerhub-ssdp",
-  "main": "lib/index.js",
+  "main": "index.js",
   "keywords": [
-    "ssdp"
+    "ssdp",
+    "discovery",
+    "service discovery"
   ],
   "scripts": {
-    "prepublish": "node_modules/.bin/eslint lib",
     "test": "node_modules/.bin/eslint lib"
   },
   "dependencies": {
-    "node-ssdp": "^2.8.0"
+    "node-ssdp": "^3.2.5",
+    "tinkerhub-discovery": "^0.1.0"
   },
   "devDependencies": {
     "eslint": "^3.11.1",

@@ -4,13 +4,22 @@ This library is a simple SSDP browser based on [node-ssdp](https://github.com/di
 that will track when devices become available and when they are no longer
 available.
 
-```
+```javascript
 const browser = require('tinkerhub-ssdp').browser('ssdp:all');
-browser.on('available', function(device) {
-	console.log(device);
-});
+browser.on('available', service => console.log('Service available', service));
+browser.on('unavailable', service => console.log('Service unavailable', service));
 
-browser.on('unavailable', function(device) {
-	console.log('device');
-});
+// Filter and map services
+browser.filter(service => service.headers['HUE-BRIDGEID'])
+  .map(service => {
+	  // Change the identifier being tracked
+	  service.id = service.headers['HUE-BRIDGEID'];
+	  return service;
+  });
+
+// Start discovering services
+browser.start();
+
+// Stop discovering services
+browser.stop();
 ```
