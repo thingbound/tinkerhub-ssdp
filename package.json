@@ -11,7 +11,7 @@
     "service discovery"
   ],
   "scripts": {
-    "test": "node_modules/.bin/eslint lib"
+    "test": "node_modules/.bin/eslint index.js"
   },
   "dependencies": {
     "node-ssdp": "^3.2.5",
